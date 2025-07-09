@@ -1,0 +1,62 @@
+<template>
+  <lightning-card title="Calculator" icon-name="utility:calculator">
+    <div class="slds-m-around_medium">
+      <!-- Input fields -->
+      <div class="slds-grid slds-wrap slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input
+            label="First Number"
+            type="number"
+            value={firstNumber}
+            onchange={handleFirstNumberChange}
+            step="0.01"
+          ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-input
+            label="Second Number"
+            type="number"
+            value={secondNumber}
+            onchange={handleSecondNumberChange}
+            step="0.01"
+          ></lightning-input>
+        </div>
+      </div>
+
+      <!-- Operation buttons -->
+      <div class="slds-m-top_medium">
+        <lightning-button
+          label="Add"
+          variant="brand"
+          onclick={performAddition}
+          class="slds-m-right_small"
+        ></lightning-button>
+        <lightning-button
+          label="Multiply"
+          variant="neutral"
+          onclick={performMultiplication}
+        ></lightning-button>
+      </div>
+
+      <!-- Result display -->
+      <template if:true={result}>
+        <div class="slds-m-top_medium">
+          <lightning-formatted-text
+            value={resultText}
+            class="slds-text-heading_medium"
+          ></lightning-formatted-text>
+        </div>
+      </template>
+
+      <!-- Error display -->
+      <template if:true={error}>
+        <div class="slds-m-top_medium">
+          <div class="slds-notify slds-notify_alert slds-theme_error">
+            <span class="slds-assistive-text">Error</span>
+            <lightning-formatted-text value={error}></lightning-formatted-text>
+          </div>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>

@@ -57,4 +57,35 @@ public class CalculatorTest {
     Decimal result5 = Calculator.subtractNumbers(5.7, 2.5);
     System.assertEquals(3.2, result5, 'Should handle decimal numbers');
   }
+
+  @IsTest
+  static void testMultiplyNumbers() {
+    // Test positive numbers
+    Decimal result1 = Calculator.multiplyNumbers(5, 3);
+    System.assertEquals(
+      15,
+      result1,
+      'Should return product of positive numbers'
+    );
+
+    // Test negative numbers
+    Decimal result2 = Calculator.multiplyNumbers(-5, -3);
+    System.assertEquals(
+      15,
+      result2,
+      'Should return product of negative numbers'
+    );
+
+    // Test mixed numbers
+    Decimal result3 = Calculator.multiplyNumbers(10, -3);
+    System.assertEquals(-30, result3, 'Should return product of mixed numbers');
+
+    // Test with zero
+    Decimal result4 = Calculator.multiplyNumbers(5, 0);
+    System.assertEquals(0, result4, 'Should handle zero correctly');
+
+    // Test decimal numbers
+    Decimal result5 = Calculator.multiplyNumbers(2.5, 4);
+    System.assertEquals(10, result5, 'Should handle decimal numbers');
+  }
 }
